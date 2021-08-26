@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 ///////////////////////////////////////////////////////////////////////////////
 //////////////////////////// Welcome To ReadStrap /////////////////////////////
-////////////////////////////////// v 1.0.0 ////////////////////////////////////
+////////////////////////////////// v 1.0.1 ////////////////////////////////////
 ///////////////////////////// Created By Muneeb ///////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -334,7 +334,7 @@ Widget Navi({
 //      ),
 ///
 // ignore: non_constant_identifier_names
-Widget BottomModernNavigation(
+Widget ModernBottomNavigation(
   {
     required List<IconButton> items,
     Color?circleColor,
@@ -564,7 +564,240 @@ Widget ModernAvater(
 
 
 
+/// 8.RoundTextField//
+// filled,
+// hintStyle,
+// width,
+// height,
+// fillColor,
+// errorText,
+// focusColor,
+// enableColor,
+// labelText,
+// hintText,
+// prefixIcon,
+// suffixIcon,
+// controller,
+// validator,
+// autovalidateMode,
+// >?onChanged,
+// onFieldSubmitted,
+// obscureText,
+///
+////////////////////////////////////////
+/////////////// Example ////////////////
+////////////////////////////////////////
+///
+//   RoundTextField(
+//              autovalidateMode: AutovalidateMode.onUserInteraction,
+//              width: 340,
+//              obscureText: false,
+//              filled: true,
+//              fillColor: Colors.white,
+//              prefixIcon:
+//                  Icon(Icons.person, color: Color.fromRGBO(0, 0, 85, 1)),
+//              suffixIcon: Icon(
+//                Icons.close,
+//                color: Color.fromRGBO(0, 0, 85, 1),
+//               ),
+//               hintText: 'Enter Your Usename',
+//               focusColor: Color.fromRGBO(0, 0, 85, 1),
+//               enableColor: Colors.blue,
+//               hintStyle: TextStyle(color: Colors.black45),
+//               onChanged: (value) {
+//                 setState(() {
+//                   write = value;
+//                 });
+///
+// ignore: non_constant_identifier_names
+Widget RoundTextField(
+  {
+    bool?filled,
+    TextStyle?hintStyle,
+    double?width,
+    double?height,
+    Color?fillColor,
+    String?errorText,
+    required Color focusColor,
+    required final Color enableColor,
+    String?labelText,
+    String?hintText,
+    Widget? prefixIcon,
+    Widget?suffixIcon,
+    TextEditingController?controller,
+    FormFieldValidator<String>? validator,
+    AutovalidateMode?autovalidateMode,
+    ValueChanged<String>?onChanged,
+    ValueChanged<String>?onFieldSubmitted,
+    bool obscureText = false,
+  }
+){
+  return Column(
+    children: [
+       Container(
+        width: width,
+        height: height,
+        child:  TextFormField(
+          autovalidateMode: autovalidateMode,
+          validator: validator,
+    controller: controller,
+    decoration: InputDecoration(
+      labelText: labelText,
+      hintText: hintText,
+      hintStyle: hintStyle,
+      prefixIcon: prefixIcon,
+      suffixIcon: suffixIcon,
+      focusColor: focusColor,
+      filled: filled,
+      fillColor: fillColor,
+      errorText: errorText,
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(40),
+        borderSide: BorderSide(
+                    color: enableColor,
+                    width: 2.0,
+                  ),
+      ),
+      enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(25.0),
+                  borderSide: BorderSide(
+                    color: enableColor,
+                    width: 2.0,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(25.0),
+                  borderSide: BorderSide(
+                    color: focusColor,
+                    width: 2.0,
+                  ),
+                ),
+
+    ),
+    onChanged: onChanged,
+    obscureText: obscureText,
+    onFieldSubmitted: onFieldSubmitted,
+  ),
+       ),
+    ],
+  );
+}
 
 
 
+
+
+/// 8.IconDrawer//
+/// 
+// items 
+// color,
+// width,
+// rounded,
+///
+////////////////////////////////////////
+/////////////// Example ////////////////
+////////////////////////////////////////
+////   
+/// drawer: IconDrawer(
+    //   color: Colors.blue,
+    //   items: [
+    //   IconButton(onPressed: () {print('click');}, icon: Icon(Icons.home, color: Colors.white,)),
+    //   IconButton(onPressed: (){print('click');}, icon: Icon(Icons.favorite, color: Colors.white,)),
+    //   IconButton(onPressed: () {print('click');}, icon: Icon(Icons.wallet_travel, color: Colors.white,)),
+    //   IconButton(onPressed: () {print('click');}, icon: Icon(Icons.chat_bubble, color: Colors.white,)),
+    //   IconButton(onPressed: () {print('click');}, icon: Icon(Icons.headset, color: Colors.white,)),
+    //   IconButton(onPressed: () { print('click');}, icon: Icon(Icons.person, color: Colors.white,)),
+    //   ]
+    // ),
+////
+// ignore: non_constant_identifier_names
+Widget IconDrawer(
+  {
+    // ignore: invalid_required_named_param
+    List<Widget> items = const <Widget>[],
+    Color?color,
+    double?width,
+    double?rounded,
+
+  }
+){
+  return Container(
+    width: width == null ? 80 : width,
+    height: double.infinity,
+    decoration: BoxDecoration(
+      color: color == null ? Colors.blue : color,
+      borderRadius: BorderRadius.only(topRight: Radius.circular(rounded == null ? 20 : rounded),bottomRight: Radius.circular(rounded == null ? 20 : rounded))
+    ),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: items,
+    ),
+  );
+}
+
+
+
+
+
+
+
+
+/// 8.ModernbottomSheet//
+///
+///   items
+//    color,
+//    height,
+//    rounded,
+///
+////////////////////////////////////////
+/////////////// Example ////////////////
+////////////////////////////////////////
+////   
+///       bottomSheet: isOpen == true ? ModernBottomSheet(
+//   color: Colors.blue,
+//   items: [
+//     IconButton(onPressed: () {print('click');}, icon: Icon(Icons.home, color: Colors.white,)),
+//   ]
+// ) : SizedBox(),
+
+
+// floatingActionButton: FloatingActionButton(
+//   onPressed:(){
+//   setState(() {
+//     if (isOpen == true){
+//       isOpen = false;
+//     }
+//     else{
+//       isOpen = true;
+//     }
+//   });
+// },
+//   child:Icon(CupertinoIcons.rectangle_arrow_up_right_arrow_down_left),
+//   ),
+///
+///
+// ignore: non_constant_identifier_names
+Widget ModernBottomSheet(
+  {
+    // ignore: invalid_required_named_param
+    List<Widget> items = const <Widget>[],
+    Color?color,
+    double?height,
+    double?rounded,
+
+  }
+){
+  return Container(
+    width: double.infinity,
+    height: height == null ? 80 : height,
+    decoration: BoxDecoration(
+      color: color == null ? Colors.blue : color,
+      borderRadius: BorderRadius.only(topLeft: Radius.circular(rounded == null ? 20 : rounded),topRight: Radius.circular(rounded == null ? 20 : rounded))
+    ),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: items,
+    ),
+  );
+}
 
